@@ -2,6 +2,8 @@ namespace GameSix
 {
     public class Foe
     {
+
+        public static int powerUpTotal;
         private string name;
         private float health, shield;
         public Foe(string name)
@@ -9,12 +11,16 @@ namespace GameSix
             SetName(name);
             health = 100;
             shield = 0;
-
+        }
+        static Foe()
+        {
+            powerUpTotal = 0;
         }
 
         public string GetName() => name;
         public float GetHealth() => health;
         public float GetShield() => shield;
+        public static int GetPowerUpCount() => powerUpTotal;
 
         public void SetName(string n)
         {
@@ -46,6 +52,12 @@ namespace GameSix
                     if(shield > 100) shield = 100;
                     break;
             }
+            IncreasePwCount();
+        }
+
+        private static void IncreasePwCount()
+        {
+            powerUpTotal++;
         }
     }
 }
