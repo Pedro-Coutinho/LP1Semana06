@@ -1,4 +1,4 @@
-namespace GameSix
+namespace GameSixFriday
 {
     public enum PowerUp
     {
