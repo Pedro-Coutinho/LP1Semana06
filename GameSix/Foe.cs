@@ -6,13 +6,20 @@ namespace GameSix
         private float health, shield;
         public Foe(string name)
         {
-            this.name = name;
+            SetName(name);
             health = 100;
             shield = 0;
 
         }
 
         public string GetName() => name;
+        public float GetHealth() => health;
+        public float GetShield() => shield;
+
+        public void SetName(string n)
+        {
+            name = n.Trim();
+        }
 
         public void TakeDamge(float damage)
         {
