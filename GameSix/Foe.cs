@@ -21,7 +21,7 @@ namespace GameSix
             name = n.Trim();
         }
 
-        public void TakeDamge(float damage)
+        public void TakeDamage(float damage)
         {
             shield -= damage;
             if (shield < 0)
@@ -30,6 +30,21 @@ namespace GameSix
                 shield = 0;
                 health -= damageStillToInflict;
                 if(health < 0) health = 0;
+            }
+        }
+
+        public void PickupPowerUp(PowerUp pw, float value)
+        {
+            switch (pw)
+            {
+                case PowerUp.Health:
+                    health += value;
+                    if(health > 100) health = 100;
+                    break;
+                case PowerUp.Shield:
+                    shield += value;
+                    if(shield > 100) shield = 100;
+                    break;
             }
         }
     }

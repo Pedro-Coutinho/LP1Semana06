@@ -29,6 +29,21 @@ namespace GameSix
                 string n = foe.GetName();
                 Console.WriteLine(n);
             }
+
+            Random rnd = new Random();
+            foreach(Foe foe in enemies)
+            {
+                int pw = rnd.Next(2);
+                PowerUp powerUp;
+                if(pw == 0) powerUp = PowerUp.Health;
+                else powerUp = PowerUp.Shield;
+
+                foe.PickupPowerUp(powerUp, rnd.Next(16));
+
+                foe.TakeDamage(rnd.Next(20));
+
+                Console.WriteLine($"Health:{foe.GetHealth()}, Shield:{foe.GetShield()}");
+            }
         
         }
     }
